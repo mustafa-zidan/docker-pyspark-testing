@@ -2,6 +2,10 @@ FROM openjdk:8-jre
 
 MAINTAINER Mustafa Abuelfadl <mustafa@zidan.me>
 
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install \
+    -yq --no-install-recommends build-essential
+
 RUN echo 'deb http://ftp.de.debian.org/debian testing main' \
     | tee -a /etc/apt/sources.list
 
